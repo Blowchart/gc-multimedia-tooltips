@@ -1,0 +1,21 @@
+{
+  "name": "blowchart-tooltips",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "load-grunt-tasks": "~0.4.0",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.10.0",
+    "grunt-contrib-less": "~0.11.3",
+    "grunt-contrib-qunit": "^0.7.0"
+  },
+  "scripts": {
+    "test": "grunt qunit"
+  },
+  "author": "Blowchart",
+  "license": "ISC"
+}

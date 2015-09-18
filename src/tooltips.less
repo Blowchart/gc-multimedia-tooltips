@@ -1,0 +1,326 @@
+@chartTooltipWidth: 150px;
+@chartTooltipHeight: 150px;
+@gray-lighter: #E8E8E8;
+
+@loader-light-color: #2BAAE2;
+@loader-light-bg-color: #22234E;
+@loader-light-shadow-color: lighten(@loader-light-color, 10%);
+@loader-dark-color: #0870B8;
+@loader-dark-bg-color: #fff;
+@loader-dark-shadow-color: darken(@loader-dark-color, 10%);
+@loader-size: 32px;
+@loader-border-width: 5px;
+
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+  -ms-transform: rotate(@degrees); // IE9 only
+  -o-transform: rotate(@degrees);
+  transform: rotate(@degrees);
+}
+
+.chart-tooltip, .google-visualization-tooltip {
+  font-size: 12px;
+  position: absolute;
+  background: #fff;
+  padding: 10px;
+  width: @chartTooltipWidth;
+  max-width: @chartTooltipWidth;
+  height: auto;
+  border: 1px solid #ccc;
+  font-family: sans-serif;
+  z-index: 98;
+  word-break: break-word;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.chart-tooltip {
+  left: 0;
+  top: 0;
+}
+
+.google-visualization-tooltip {
+  display: block !important;
+  visibility: hidden;
+  z-index: -1;
+  overflow: hidden;
+  width: (@chartTooltipWidth + 1px);
+  max-width: (@chartTooltipWidth + 1px);
+  height: (@chartTooltipHeight + 1px);
+}
+
+.charts-tooltip {
+  z-index: 1065;
+}
+
+body > .charts-tooltip {
+  z-index: 1070;
+}
+
+.unfocusable {
+  z-index: -1;
+}
+
+.chart-tooltip {
+  &.hidden {
+    display: none;
+  }
+
+  &:not(.selected):hover,
+  &:not(.selected).hovered {
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    opacity: 0.4;
+    cursor: pointer !important;
+    pointer-events: none !important;
+  }
+
+  a.chart-parsed-url {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    margin-bottom: -5px;
+  }
+
+  .chart-parsed-img-fail,
+  .chart-parsed-audio-fail,
+  .chart-parsed-video-fail {
+    width: (@chartTooltipWidth - 22px);
+    height: (@chartTooltipHeight - 22px);
+    background: @gray-lighter;
+
+    > span {
+      width: 100%;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;
+
+      > a {
+        overflow: initial;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .chart-parsed-img-wrapper,
+  .chart-parsed-audio-wrapper,
+  .chart-parsed-video-wrapper {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+
+    &.loading > * {
+      visibility: hidden;
+    }
+  }
+
+  .chart-parsed-img-wrapper {
+    width: (@chartTooltipWidth - 22px);
+    height: (@chartTooltipHeight - 22px);
+
+    a.chart-parsed-img > img {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .chart-parsed-audio-wrapper {
+    .chart-parsed-audio {
+      width: (@chartTooltipWidth - 22px);
+    }
+  }
+
+  .chart-parsed-video-wrapper {
+    width: (@chartTooltipWidth - 22px);
+    height: (@chartTooltipHeight - 22px);
+
+    .chart-parsed-video {
+      width: (@chartTooltipWidth - 22px);
+      height: (@chartTooltipHeight - 22px);
+      background: #000;
+    }
+  }
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    margin-bottom: 5px;
+
+    > b {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+  }
+
+  .loading {
+    position: relative;
+  }
+
+  .loading-placeholder {
+    height: @loader-size;
+    display: block;
+    &:before {
+      background: transparent !important;
+    }
+  }
+
+  .loading, .loading * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .loading {
+    &:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: 50%;
+      border-style: solid;
+      border-width: @loader-border-width;
+      border-left-width: 6px;
+      border-color: darken(@loader-light-color, 20%);
+      border-left-color: @loader-light-color;
+      margin-left: calc(@loader-size / 2 * -1);
+      margin-top: calc(@loader-size / 2 * -1);
+      width: @loader-size;
+      height: @loader-size;
+      z-index: 100;
+      -webkit-animation: loadingAnimation .8s infinite ease;
+      animation: loadingAnimation .8s infinite ease;
+    }
+
+    &.loading-sm:after {
+      margin-left: calc(@loader-size / 4 * -1);
+      margin-top: calc(@loader-size / 4 * -1);
+      width: calc(@loader-size / 2);
+      height: calc(@loader-size / 2);
+      border-width: calc(@loader-border-width / 1.5);
+    }
+
+    &.loading-right:after {
+      right: 5px;
+      left: auto;
+      margin-left: 0;
+    }
+
+    &.loading-left:after {
+      left: 5px;
+      right: auto;
+      margin-left: 0;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      padding: 0;
+      margin: 0;
+    }
+
+    &.loading-dark {
+      &:before {
+        background: fade(@loader-light-bg-color, 80%);
+      }
+      &:after {
+        border-color: darken(@loader-light-color, 20%);
+        border-left-color: @loader-light-color;
+      }
+    }
+
+    &:not(.loading-dark) {
+      &:before {
+        background: fade(@loader-dark-bg-color, 80%);
+      }
+      &:after {
+        border-color: lighten(@loader-dark-color, 20%);
+        border-left-color: @loader-dark-color;
+      }
+    }
+
+    .loading {
+      &:after {
+        z-index: 98;
+      }
+
+      &:before {
+        z-index: 97;
+      }
+    }
+  }
+
+  .btn.loading {
+    cursor: default;
+    visibility: hidden;
+    &:after {
+      visibility: visible;
+    }
+  }
+
+  body.loading, body > .container.loading {
+    position: static;
+
+    &:before {
+      position: fixed;
+      z-index: 2000;
+    }
+
+    &:after {
+      z-index: 2001;
+      position: fixed;
+      top: 50vh;
+    }
+  }
+
+  @-webkit-keyframes loadingAnimation {
+    0% {
+      .rotate(0deg);
+    }
+    100% {
+      .rotate(360deg);
+    }
+  }
+
+  @keyframes loadingAnimation {
+    0% {
+      .rotate(0deg);
+    }
+    100% {
+      .rotate(360deg);
+    }
+  }
+}

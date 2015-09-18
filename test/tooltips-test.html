@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tooltip tests</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.19.0.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.19.0.js"></script>
+    <script type="text/javascript" src="../plugin/tooltips.min.js"></script>
+
+    <script>
+        window.google = {
+            "visualization": {
+                "events": {
+                    "addListener": function() {
+
+                    }
+                }
+            }
+        };
+        var chart = {
+            "gh": "pie",
+            "ma": document.createElement( "div" )
+        };
+
+        var data = {
+            "Ff": [
+                {"label": "", "type": "string"},
+                {"label": "", "type": "number"} ],
+            "Gf": [
+                {
+                    "c": [
+                        {"v": "Value 1"},
+                        {"v": 1} ]
+                },
+                {
+                    "c": [
+                        {"v": "Value 2"},
+                        {"v": 2} ]
+                }
+            ]
+        };
+
+
+        var tooltips = $.tooltips( data, chart, {} );
+
+        QUnit.test( "Content parsing test", function( assert ) {
+            var content;
+            
+            content = "https://example.com/image.gif";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-img-wrapper loading'><a href='https://example.com/image.gif' title='https://example.com/image.gif' target='_blank' class='chart-parsed-img'><img src='https://example.com/image.gif' alt='https://example.com/image.gif' /></a></div>" );
+
+            content = "https://example.com/image.jpg";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-img-wrapper loading'><a href='https://example.com/image.jpg' title='https://example.com/image.jpg' target='_blank' class='chart-parsed-img'><img src='https://example.com/image.jpg' alt='https://example.com/image.jpg' /></a></div>" );
+
+            content = "https://example.com/image.jpeg";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-img-wrapper loading'><a href='https://example.com/image.jpeg' title='https://example.com/image.jpeg' target='_blank' class='chart-parsed-img'><img src='https://example.com/image.jpeg' alt='https://example.com/image.jpeg' /></a></div>" );
+            
+            content = "https://example.com/image.tiff";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-img-wrapper loading'><a href='https://example.com/image.tiff' title='https://example.com/image.tiff' target='_blank' class='chart-parsed-img'><img src='https://example.com/image.tiff' alt='https://example.com/image.tiff' /></a></div>" );
+            
+            content = "https://example.com/image.png";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-img-wrapper loading'><a href='https://example.com/image.png' title='https://example.com/image.png' target='_blank' class='chart-parsed-img'><img src='https://example.com/image.png' alt='https://example.com/image.png' /></a></div>" );
+
+            content = "https://example.com/audio.mp3";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-audio-wrapper loading'><audio controls class='chart-parsed-audio'><source src='https://example.com/audio.mp3' type='audio/mpeg'>Unable to play audio</audio><a href='https://example.com/audio.mp3' title='https://example.com/audio.mp3' target='_blank' class='chart-parsed-url'>open url</a></div>" );
+
+            content = "https://example.com/audio.m4a";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-audio-wrapper loading'><audio controls class='chart-parsed-audio'><source src='https://example.com/audio.m4a' type='audio/mp4'>Unable to play audio</audio><a href='https://example.com/audio.m4a' title='https://example.com/audio.m4a' target='_blank' class='chart-parsed-url'>open url</a></div>" );
+
+            content = "https://example.com/audio.ogg";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-audio-wrapper loading'><audio controls class='chart-parsed-audio'><source src='https://example.com/audio.ogg' type='audio/ogg'>Unable to play audio</audio><a href='https://example.com/audio.ogg' title='https://example.com/audio.ogg' target='_blank' class='chart-parsed-url'>open url</a></div>" );
+
+            content = "https://example.com/video.mp4";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-video-wrapper loading'><video controls class='chart-parsed-video'><source src='https://example.com/video.mp4' type='video/mp4'>Unable to play video</video><a href='https://example.com/video.mp4' title='https://example.com/video.mp4' target='_blank' class='chart-parsed-url'>open url</a></div>" );
+
+            content = "https://example.com/video.webm";
+            assert.equal( tooltips.parseContent( content ), "<div class='chart-parsed-video-wrapper loading'><video controls class='chart-parsed-video'><source src='https://example.com/video.webm' type='video/webm'>Unable to play video</video><a href='https://example.com/video.webm' title='https://example.com/video.webm' target='_blank' class='chart-parsed-url'>open url</a></div>" );
+
+            content = "http://example.com";
+            assert.equal( tooltips.parseContent( content ), "<a href='http://example.com' title='http://example.com' target='_blank' class='chart-parsed-url'>http://example.com</a>" );
+            
+            content = "https://example.com";
+            assert.equal( tooltips.parseContent( content ), "<a href='https://example.com' title='https://example.com' target='_blank' class='chart-parsed-url'>https://example.com</a>" );
+
+            content = "ftp://example.com";
+            assert.equal( tooltips.parseContent( content ), "<a href='ftp://example.com' title='ftp://example.com' target='_blank' class='chart-parsed-url'>ftp://example.com</a>" );
+
+        } );
+    </script>
+</head>
+<body>
+
+<div id="qunit"></div>
+
+</body>
+</html>

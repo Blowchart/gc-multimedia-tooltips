@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Tooltip Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="plugin/tooltips.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="demo.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="src/tooltips.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <h1>Tooltips plugin</h1>
+
+            <p>Tooltips plugin is a jQuery plugin, that converts standard Google Charts tooltips into user friendly. It
+                converts
+                urls in chart data into tags like: <code>&lt;img&gt;</code>,
+                <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code> and <code>&lt;a&gt;</code>.</p>
+
+            <h2>Features</h2>
+            <ul>
+                <li>Single-line plugin integration;</li>
+                <li>Click through tooltip, if datapoint is not selected;</li>
+                <li>Supported protocols: <code>https</code>, <code>http</code> and <code>ftp</code>;</li>
+                <li>Supported file extensions: <code>gif</code>, <code>jpg</code>, <code>jpeg</code>, <code>tiff</code>, <code>png</code>, <code>mp3</code>, <code>m4a</code>, <code>ogg</code>, <code>mp4</code> and <code>webm</code>;</li>
+                <li>Integrated error case processing, when unable to load image, video or audio;</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
+            </ul>
+
+            <p>You can take a look at below at how this plugin is already working in production!</p>
+
+
+            <h3>Examples</h3>
+
+            <div class="text-center">
+                <iframe frameborder="0" scrolling="no" width="600" height="375"
+                        src="https://www.blowchart.com/embed/cbbbjQ?width=600"></iframe>
+            </div>
+
+            <div class="text-center">
+                <iframe frameborder="0" scrolling="no" width="600" height="375"
+                        src="https://www.blowchart.com/embed/cbbbjR?width=600"></iframe>
+            </div>
+
+            <h3>Usage example</h3>
+
+            <p>To use this plugin, all you need to do is add this line right before calling Google Chart's
+                <code>draw()</code> method:</p>
+
+            <pre><code class="javascript">$.tooltips( data, chart, options );</code></pre>
+
+            <p>Note, that all arguments are required. Also it is important to define variables before passing them to <code>$.tooltips</code>, some of them are overrided when plugin is initialized.</p>
+
+            <h3>Here's full code example:</h3>
+
+            <pre><code class="javascript">$( function() {
+    // Load the Visualization API and the piechart package.
+    google.load( "visualization", "1.0", {
+        "packages": [ "corechart" ],
+        "callback": function() {
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn( "string", "Topping" );
+            data.addColumn( "number", "Slices" );
+            data.addRows( [
+                [ "Mushrooms https://upload.wikimedia.org/wikipedia/commons/b/b8/Mushroom_-_unidentified.jpg", 3 ],
+                [ "Onions http://media.mercola.com/assets/images/food-facts/onion-healthy-recipes.jpg", 1 ],
+                [ "Olives http://www.gourmetsleuth.com/images/default-source/dictionary/spanish-olives.jpg?sfvrsn=6", 1 ],
+                [ "Zucchini https://u.osu.edu/buckmdblog/files/2015/05/zucchini-ym5607.jpg", 1 ],
+                [ "Pepperoni http://www.salumeriabiellese.com/images/big/Pepperoni.jpg", {
+                    v: 2,
+                    f: "two"
+                } ]
+            ] );
+
+            // Set chart options
+            var options = {
+                "title": "How Much Pizza I Ate Last Night"
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.PieChart( $( "#chart-example" )[ 0 ] );
+
+            // Call tooltips plugin
+            $.tooltips( data, chart, options );
+
+            // Draw chart
+            chart.draw( data, options );
+        }
+    } );
+} );</code></pre>
+            <h2>Installation instructions</h2>
+            <pre><code class="bash">npm install tooltips</code></pre>
+        </div>
+    </div>
+</div>
+<div id="chart-example"></div>
+<script>
+    $( function() {
+        // Load the Visualization API and the piechart package.
+        google.load( "visualization", "1.0", {
+            "packages": [ "corechart" ],
+            "callback": function() {
+                // Create the data table.
+                var data = new google.visualization.DataTable();
+                data.addColumn( "string", "Topping" );
+                data.addColumn( "number", "Slices" );
+                data.addRows( [
+                    [ "<a href=\"http://example.com\">Mushrooms</a> https://upload.wikimedia.org/wikipedia/commons/b/b8/Mushroom_-_unidentified.jpg", 3 ],
+                    [ "Onions http://media.mercola.com/assets/images/food-facts/onion-healthy-recipes.jpg", 1 ],
+                    [ "Olives http://www.gourmetsleuth.com/images/default-source/dictionary/spanish-olives.jpg?sfvrsn=6", 1 ],
+                    [ "Zucchini https://u.osu.edu/buckmdblog/files/2015/05/zucchini-ym5607.jpg", 1 ],
+                    [ "Pepperoni http://www.salumeriabiellese.com/images/big/Pepperoni.jpg", {
+                        v: 2,
+                        f: "two"
+                    } ]
+                ] );
+
+                // Set chart options
+                var options = {
+                    "title": "How Much Pizza I Ate Last Night"
+                };
+
+                // Instantiate and draw our chart, passing in some options.
+                var chart = new google.visualization.PieChart( $( "#chart-example" )[ 0 ] );
+
+                // Call tooltips plugin
+                $.tooltips( data, chart, options );
+
+                // Draw chart
+                chart.draw( data, options );
+            }
+        } );
+    } );
+</script>
+<br />
+<br />
+<br />
+<br />
+</body>
+</html>
