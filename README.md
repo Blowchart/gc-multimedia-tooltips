@@ -10,21 +10,15 @@ Tooltips plugin is a jQuery plugin, that converts standard Google Charts tooltip
 
 You can take a look at below at how this plugin is already working in production!
 
-## Images
-<iframe frameborder="0" scrolling="no" width="600" height="375" src="https://www.blowchart.com/embed/cbbbjQ?width=600"></iframe>
-
-## Audio
-<iframe frameborder="0" scrolling="no" width="600" height="375" src="https://www.blowchart.com/embed/cbbbjR?width=600"></iframe>
-
 ## Usage example
 To use this plugin, all you need to do is add this line right before calling Google Chart's `draw()` method:
 
 ```javascript
 $.tooltips( data, chart, options );
 ```
-Note, that all arguments are required.
+Note, that all arguments are required. Also it is important to define variables before passing them to <code>$.tooltips</code>, some of them are overrided when plugin is initialized.
 
-## Here's full code example:
+### Here's full code example:
 ```javascript
 $( function() {
     // Load the Visualization API and the piechart package.

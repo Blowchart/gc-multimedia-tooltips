@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="demo.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="src/tooltips.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
@@ -105,48 +103,5 @@
         </div>
     </div>
 </div>
-<div id="chart-example"></div>
-<script>
-    $( function() {
-        // Load the Visualization API and the piechart package.
-        google.load( "visualization", "1.0", {
-            "packages": [ "corechart" ],
-            "callback": function() {
-                // Create the data table.
-                var data = new google.visualization.DataTable();
-                data.addColumn( "string", "Topping" );
-                data.addColumn( "number", "Slices" );
-                data.addRows( [
-                    [ "<a href=\"http://example.com\">Mushrooms</a> https://upload.wikimedia.org/wikipedia/commons/b/b8/Mushroom_-_unidentified.jpg", 3 ],
-                    [ "Onions http://media.mercola.com/assets/images/food-facts/onion-healthy-recipes.jpg", 1 ],
-                    [ "Olives http://www.gourmetsleuth.com/images/default-source/dictionary/spanish-olives.jpg?sfvrsn=6", 1 ],
-                    [ "Zucchini https://u.osu.edu/buckmdblog/files/2015/05/zucchini-ym5607.jpg", 1 ],
-                    [ "Pepperoni http://www.salumeriabiellese.com/images/big/Pepperoni.jpg", {
-                        v: 2,
-                        f: "two"
-                    } ]
-                ] );
-
-                // Set chart options
-                var options = {
-                    "title": "How Much Pizza I Ate Last Night"
-                };
-
-                // Instantiate and draw our chart, passing in some options.
-                var chart = new google.visualization.PieChart( $( "#chart-example" )[ 0 ] );
-
-                // Call tooltips plugin
-                $.tooltips( data, chart, options );
-
-                // Draw chart
-                chart.draw( data, options );
-            }
-        } );
-    } );
-</script>
-<br />
-<br />
-<br />
-<br />
 </body>
 </html>
