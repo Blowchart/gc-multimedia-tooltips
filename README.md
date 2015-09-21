@@ -1,5 +1,7 @@
-# Tooltips plugin
-Tooltips plugin is a jQuery plugin, that converts standard Google Charts tooltips into user friendly. It                 converts urls in chart data into tags like: `<img>`, `<audio>`, `<video>` and `<a>`.
+# Multimedia tooltips for Google Charts
+Multimedia tooltips for Google Charts is a jQuery plugin, that enhances standard Google Charts tooltips.
+
+The plugin's function is to convert URLs in the chart data into HTML tags like: `<img>`, `<audio>`, `<video>` and `<a>` and render them inside the Google Charts tooltips.
 
 ## Features
 - Single-line plugin integration
@@ -8,7 +10,9 @@ Tooltips plugin is a jQuery plugin, that converts standard Google Charts tooltip
 - Supported file extensions: `gif`, `jpg`, `jpeg`, `tiff`, `png`, `mp3`, `m4a`, `ogg`, `mp4` and `webm`.
 - Integrated error case processing
 
-You can take a look at below at how this plugin is already working in production!
+Check the [demo site](#demo) to see an example.
+
+**[See the demo](#demo)**
 
 ## Usage example
 To use this plugin, all you need to do is add this line right before calling Google Chart's `draw()` method:
@@ -16,6 +20,7 @@ To use this plugin, all you need to do is add this line right before calling Goo
 ```javascript
 $.tooltips( data, chart, options );
 ```
+
 Note, that all arguments are required. Also it is important to define variables before passing them to <code>$.tooltips</code>, some of them are overrided when plugin is initialized.
 
 ### Here's full code example:
@@ -60,5 +65,5 @@ $( function() {
 
 ## Installation instructions
 ```bash
-npm install tooltips
+npm install gc-multimedia-tooltips
 ```
