@@ -137,7 +137,7 @@
         if (typeof content == "string" && content.length) {
             var exp;
 
-            exp = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+            exp = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])(?![^<]*>|[^<>]*<\/)/i;
             // Find all links
             content = content.replace( exp, function( match ) {
                 var source, found;

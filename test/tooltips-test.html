@@ -87,6 +87,15 @@
             content = "ftp://example.com";
             assert.equal( tooltips.parseContent( content ), "<a href='ftp://example.com' title='ftp://example.com' target='_blank' class='chart-parsed-url'>ftp://example.com</a>" );
 
+            content = "<a href='https://example.com'>Anchor</a>";
+            assert.equal( tooltips.parseContent( content ), "<a href='https://example.com'>Anchor</a>" );
+
+            content = "<img src='https://example.com/image.png' alt='Image' />";
+            assert.equal( tooltips.parseContent( content ), "<img src='https://example.com/image.png' alt='Image' />" );
+
+            content = "<p>Paragraph with <strong>strong</strong> text</p>";
+            assert.equal( tooltips.parseContent( content ), "<p>Paragraph with <strong>strong</strong> text</p>" );
+
         } );
     </script>
 </head>
