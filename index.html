@@ -3,7 +3,6 @@
 <head>
     <title>Tooltip Demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="plugin/tooltips.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
     <link rel="stylesheet" href="demo.css">
@@ -49,10 +48,14 @@
 
             <h3>Usage example</h3>
 
-            <p>To use this plugin, all you need to do is add this line right before calling Google Chart's
-                <code>draw()</code> method:</p>
+            <p>To use this plugin, all you need to do is add javascript and css files to your HTML:
 
-            <pre><code class="javascript">$.tooltips( data, chart, options );</code></pre>
+            <pre><code class="html">&lt;link rel="stylesheet" href="plugin/gc-multimedia-tooltips.min.css" /&gt;
+&lt;script type="text/javascript" src="plugin/gc-multimedia-tooltips.min.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p>And add this line right before calling Google Chart's <code>draw()</code> method:</p>
+
+            <pre><code class="javascript">$.gc_multimedia_tooltips( data, chart, options );</code></pre>
 
             <p>Note, that all arguments are required. Also it is important to define variables before passing them to <code>$.tooltips</code>, some of them are overrided when plugin is initialized.</p>
 
@@ -87,7 +90,7 @@
             var chart = new google.visualization.PieChart( $( "#chart-example" )[ 0 ] );
 
             // Call tooltips plugin
-            $.tooltips( data, chart, options );
+            $.gc_multimedia_tooltips( data, chart, options );
 
             // Draw chart
             chart.draw( data, options );

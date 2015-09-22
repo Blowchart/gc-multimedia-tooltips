@@ -2,8 +2,8 @@
   "name": "gc-multimedia-tooltips",
   "version": "1.0.0",
   "main": [
-    "plugin/tooltips.min.js",
-    "plugin/tooltips.min.css"
+    "plugin/gc-multimedia-tooltips.min.js",
+    "plugin/gc-multimedia-tooltips.min.css"
   ],
   "homepage": "https://github.com/Blowchart/multimedia-tooltips",
   "authors": [

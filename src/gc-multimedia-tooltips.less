@@ -18,7 +18,7 @@
   transform: rotate(@degrees);
 }
 
-.chart-tooltip, .google-visualization-tooltip {
+.gc-multimedia-tooltip, .google-visualization-tooltip {
   font-size: 12px;
   position: absolute;
   background: #fff;
@@ -35,7 +35,7 @@
   box-sizing: border-box;
 }
 
-.chart-tooltip {
+.gc-multimedia-tooltip {
   left: 0;
   top: 0;
 }
@@ -50,11 +50,11 @@
   height: (@chartTooltipHeight + 1px);
 }
 
-.charts-tooltip {
+.gc-multimedia-tooltip {
   z-index: 1065;
 }
 
-body > .charts-tooltip {
+body > .gc-multimedia-tooltip {
   z-index: 1070;
 }
 
@@ -62,7 +62,7 @@ body > .charts-tooltip {
   z-index: -1;
 }
 
-.chart-tooltip {
+.gc-multimedia-tooltip {
   &.hidden {
     display: none;
   }

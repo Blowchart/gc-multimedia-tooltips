@@ -14,7 +14,7 @@ module.exports = function( grunt ) {
                     sourceMap: false
                 },
                 files: {
-                    "plugin/tooltips.css": "src/tooltips.less"
+                    "plugin/gc-multimedia-tooltips.css": "src/gc-multimedia-tooltips.less"
                 }
             }
         },
@@ -24,7 +24,7 @@ module.exports = function( grunt ) {
             },
             main: {
                 files: {
-                    "plugin/tooltips.min.css": [ "plugin/tooltips.css" ]
+                    "plugin/gc-multimedia-tooltips.min.css": [ "plugin/gc-multimedia-tooltips.css" ]
                 }
             }
         },
@@ -33,7 +33,7 @@ module.exports = function( grunt ) {
                 nonull: true,
                 expand: true,
                 cwd: "src",
-                src: "tooltips.js",
+                src: "gc-multimedia-tooltips.js",
                 dest: "plugin"
             }
         },
@@ -48,7 +48,7 @@ module.exports = function( grunt ) {
             },
             main: {
                 files: {
-                    "plugin/tooltips.min.js": [ "plugin/tooltips.js" ]
+                    "plugin/gc-multimedia-tooltips.min.js": [ "plugin/gc-multimedia-tooltips.js" ]
                 }
             }
         }

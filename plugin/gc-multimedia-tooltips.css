@@ -1,4 +1,4 @@
-.chart-tooltip,
+.gc-multimedia-tooltip,
 .google-visualization-tooltip {
   font-size: 12px;
   position: absolute;
@@ -15,7 +15,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.chart-tooltip {
+.gc-multimedia-tooltip {
   left: 0;
   top: 0;
 }
@@ -28,27 +28,27 @@
   max-width: 151px;
   height: 151px;
 }
-.charts-tooltip {
+.gc-multimedia-tooltip {
   z-index: 1065;
 }
-body > .charts-tooltip {
+body > .gc-multimedia-tooltip {
   z-index: 1070;
 }
 .unfocusable {
   z-index: -1;
 }
-.chart-tooltip.hidden {
+.gc-multimedia-tooltip.hidden {
   display: none;
 }
-.chart-tooltip:not(.selected):hover,
-.chart-tooltip:not(.selected).hovered {
+.gc-multimedia-tooltip:not(.selected):hover,
+.gc-multimedia-tooltip:not(.selected).hovered {
   -webkit-transition-duration: .2s;
   transition-duration: .2s;
   opacity: 0.4;
   cursor: pointer !important;
   pointer-events: none !important;
 }
-.chart-tooltip a.chart-parsed-url {
+.gc-multimedia-tooltip a.chart-parsed-url {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
@@ -56,16 +56,16 @@ body > .charts-tooltip {
   max-width: 100%;
   margin-bottom: -5px;
 }
-.chart-tooltip .chart-parsed-img-fail,
-.chart-tooltip .chart-parsed-audio-fail,
-.chart-tooltip .chart-parsed-video-fail {
+.gc-multimedia-tooltip .chart-parsed-img-fail,
+.gc-multimedia-tooltip .chart-parsed-audio-fail,
+.gc-multimedia-tooltip .chart-parsed-video-fail {
   width: 128px;
   height: 128px;
   background: #e8e8e8;
 }
-.chart-tooltip .chart-parsed-img-fail > span,
-.chart-tooltip .chart-parsed-audio-fail > span,
-.chart-tooltip .chart-parsed-video-fail > span {
+.gc-multimedia-tooltip .chart-parsed-img-fail > span,
+.gc-multimedia-tooltip .chart-parsed-audio-fail > span,
+.gc-multimedia-tooltip .chart-parsed-video-fail > span {
   width: 100%;
   display: block;
   position: absolute;
@@ -79,29 +79,29 @@ body > .charts-tooltip {
   max-width: 100%;
   max-height: 100%;
 }
-.chart-tooltip .chart-parsed-img-fail > span > a,
-.chart-tooltip .chart-parsed-audio-fail > span > a,
-.chart-tooltip .chart-parsed-video-fail > span > a {
+.gc-multimedia-tooltip .chart-parsed-img-fail > span > a,
+.gc-multimedia-tooltip .chart-parsed-audio-fail > span > a,
+.gc-multimedia-tooltip .chart-parsed-video-fail > span > a {
   overflow: initial;
   text-decoration: none;
 }
-.chart-tooltip .chart-parsed-img-wrapper,
-.chart-tooltip .chart-parsed-audio-wrapper,
-.chart-tooltip .chart-parsed-video-wrapper {
+.gc-multimedia-tooltip .chart-parsed-img-wrapper,
+.gc-multimedia-tooltip .chart-parsed-audio-wrapper,
+.gc-multimedia-tooltip .chart-parsed-video-wrapper {
   position: relative;
   display: inline-block;
   text-align: center;
 }
-.chart-tooltip .chart-parsed-img-wrapper.loading > *,
-.chart-tooltip .chart-parsed-audio-wrapper.loading > *,
-.chart-tooltip .chart-parsed-video-wrapper.loading > * {
+.gc-multimedia-tooltip .chart-parsed-img-wrapper.loading > *,
+.gc-multimedia-tooltip .chart-parsed-audio-wrapper.loading > *,
+.gc-multimedia-tooltip .chart-parsed-video-wrapper.loading > * {
   visibility: hidden;
 }
-.chart-tooltip .chart-parsed-img-wrapper {
+.gc-multimedia-tooltip .chart-parsed-img-wrapper {
   width: 128px;
   height: 128px;
 }
-.chart-tooltip .chart-parsed-img-wrapper a.chart-parsed-img > img {
+.gc-multimedia-tooltip .chart-parsed-img-wrapper a.chart-parsed-img > img {
   display: block;
   position: absolute;
   top: 50%;
@@ -114,43 +114,43 @@ body > .charts-tooltip {
   max-width: 100%;
   max-height: 100%;
 }
-.chart-tooltip .chart-parsed-audio-wrapper .chart-parsed-audio {
+.gc-multimedia-tooltip .chart-parsed-audio-wrapper .chart-parsed-audio {
   width: 128px;
 }
-.chart-tooltip .chart-parsed-video-wrapper {
+.gc-multimedia-tooltip .chart-parsed-video-wrapper {
   width: 128px;
   height: 128px;
 }
-.chart-tooltip .chart-parsed-video-wrapper .chart-parsed-video {
+.gc-multimedia-tooltip .chart-parsed-video-wrapper .chart-parsed-video {
   width: 128px;
   height: 128px;
   background: #000;
 }
-.chart-tooltip p {
+.gc-multimedia-tooltip p {
   margin-bottom: 5px;
 }
-.chart-tooltip p:last-child {
+.gc-multimedia-tooltip p:last-child {
   margin-bottom: 0;
 }
-.chart-tooltip p > b {
+.gc-multimedia-tooltip p > b {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 100%;
 }
-.chart-tooltip .loading {
+.gc-multimedia-tooltip .loading {
   position: relative;
 }
-.chart-tooltip .loading-placeholder {
+.gc-multimedia-tooltip .loading-placeholder {
   height: 32px;
   display: block;
 }
-.chart-tooltip .loading-placeholder:before {
+.gc-multimedia-tooltip .loading-placeholder:before {
   background: transparent !important;
 }
-.chart-tooltip .loading,
-.chart-tooltip .loading * {
+.gc-multimedia-tooltip .loading,
+.gc-multimedia-tooltip .loading * {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -158,7 +158,7 @@ body > .charts-tooltip {
   -ms-user-select: none;
   user-select: none;
 }
-.chart-tooltip .loading:after {
+.gc-multimedia-tooltip .loading:after {
   content: "";
   position: absolute;
   left: 50%;
@@ -177,24 +177,24 @@ body > .charts-tooltip {
   -webkit-animation: loadingAnimation .8s infinite ease;
   animation: loadingAnimation .8s infinite ease;
 }
-.chart-tooltip .loading.loading-sm:after {
+.gc-multimedia-tooltip .loading.loading-sm:after {
   margin-left: calc(32px / 4 * -1);
   margin-top: calc(32px / 4 * -1);
   width: calc(32px / 2);
   height: calc(32px / 2);
   border-width: calc(5px / 1.5);
 }
-.chart-tooltip .loading.loading-right:after {
+.gc-multimedia-tooltip .loading.loading-right:after {
   right: 5px;
   left: auto;
   margin-left: 0;
 }
-.chart-tooltip .loading.loading-left:after {
+.gc-multimedia-tooltip .loading.loading-left:after {
   left: 5px;
   right: auto;
   margin-left: 0;
 }
-.chart-tooltip .loading:before {
+.gc-multimedia-tooltip .loading:before {
   content: "";
   display: block;
   position: absolute;
@@ -206,44 +206,44 @@ body > .charts-tooltip {
   padding: 0;
   margin: 0;
 }
-.chart-tooltip .loading.loading-dark:before {
+.gc-multimedia-tooltip .loading.loading-dark:before {
   background: rgba(34, 35, 78, 0.8);
 }
-.chart-tooltip .loading.loading-dark:after {
+.gc-multimedia-tooltip .loading.loading-dark:after {
   border-color: #146c93;
   border-left-color: #2baae2;
 }
-.chart-tooltip .loading:not(.loading-dark):before {
+.gc-multimedia-tooltip .loading:not(.loading-dark):before {
   background: rgba(255, 255, 255, 0.8);
 }
-.chart-tooltip .loading:not(.loading-dark):after {
+.gc-multimedia-tooltip .loading:not(.loading-dark):after {
   border-color: #30a5f6;
   border-left-color: #0870b8;
 }
-.chart-tooltip .loading .loading:after {
+.gc-multimedia-tooltip .loading .loading:after {
   z-index: 98;
 }
-.chart-tooltip .loading .loading:before {
+.gc-multimedia-tooltip .loading .loading:before {
   z-index: 97;
 }
-.chart-tooltip .btn.loading {
+.gc-multimedia-tooltip .btn.loading {
   cursor: default;
   visibility: hidden;
 }
-.chart-tooltip .btn.loading:after {
+.gc-multimedia-tooltip .btn.loading:after {
   visibility: visible;
 }
-.chart-tooltip body.loading,
-.chart-tooltip body > .container.loading {
+.gc-multimedia-tooltip body.loading,
+.gc-multimedia-tooltip body > .container.loading {
   position: static;
 }
-.chart-tooltip body.loading:before,
-.chart-tooltip body > .container.loading:before {
+.gc-multimedia-tooltip body.loading:before,
+.gc-multimedia-tooltip body > .container.loading:before {
   position: fixed;
   z-index: 2000;
 }
-.chart-tooltip body.loading:after,
-.chart-tooltip body > .container.loading:after {
+.gc-multimedia-tooltip body.loading:after,
+.gc-multimedia-tooltip body > .container.loading:after {
   z-index: 2001;
   position: fixed;
   top: 50vh;

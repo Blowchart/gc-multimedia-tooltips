@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.19.0.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.19.0.js"></script>
-    <script type="text/javascript" src="../plugin/tooltips.min.js"></script>
+    <script type="text/javascript" src="../plugin/gc-multimedia-tooltips.js"></script>
 
     <script>
         window.google = {
@@ -43,7 +43,7 @@
         };
 
 
-        var tooltips = $.tooltips( data, chart, {} );
+        var tooltips = $.gc_multimedia_tooltips( data, chart, {} );
 
         QUnit.test( "Content parsing test", function( assert ) {
             var content;

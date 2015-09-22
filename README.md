@@ -15,10 +15,17 @@ Check the [demo site](#demo) to see an example.
 **[See the demo](#demo)**
 
 ## Usage example
-To use this plugin, all you need to do is add this line right before calling Google Chart's `draw()` method:
+To use this plugin, all you need to do is add javascript and css files to your HTML:
+
+```html
+<link rel="stylesheet" href="plugin/gc-multimedia-tooltips.min.css" />
+<script type="text/javascript" src="plugin/gc-multimedia-tooltips.min.js"></script>
+```
+
+And add this line right before calling Google Chart's `draw()` method:
 
 ```javascript
-$.tooltips( data, chart, options );
+$.gc_multimedia_tooltips( data, chart, options );
 ```
 
 Note, that all arguments are required. Also it is important to define variables before passing them to <code>$.tooltips</code>, some of them are overrided when plugin is initialized.
@@ -54,7 +61,7 @@ $( function() {
             var chart = new google.visualization.PieChart( $( "#chart-example" )[ 0 ] );
 
             // Call tooltips plugin
-            $.tooltips( data, chart, options );
+            $.gc_multimedia_tooltips( data, chart, options );
 
             // Draw chart
             chart.draw( data, options );

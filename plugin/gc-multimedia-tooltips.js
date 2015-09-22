@@ -6,7 +6,7 @@
      * @param chart {object} Google Charts object
      * @param options {object} Google Charts options object
      */
-    $.tooltips = function( data, chart, options ) {
+    $.gc_multimedia_tooltips = function( data, chart, options ) {
 
         // Output warnings in console, if any of parameters is not passed
 
@@ -22,7 +22,7 @@
         else {
             // Initialize class
 
-            var tooltips = new Tooltips();
+            var tooltips = new GC_Multimedia_Tooltips();
 
             tooltips.type = chart.gh;
             tooltips.chartClass = chart;
@@ -84,7 +84,7 @@
 
     // Tooltip class
 
-    function Tooltips() {
+    function GC_Multimedia_Tooltips() {
         // Original data
         this.originalData = {};
         // Parsed data
@@ -94,7 +94,7 @@
         // Flag to leave selected data point
         this.leaveSelectedDatapoint = false;
         // Tooltip class
-        this.tooltipClass = "chart-tooltip";
+        this.tooltipClass = "gc-multimedia-tooltip";
         // Chart DOM element
         this.chartDomElement;
         // Google Charts class
@@ -133,7 +133,7 @@
      * @param content {string} Content to be parsed
      * @returns {*}
      */
-    Tooltips.prototype.parseContent = function( content ) {
+    GC_Multimedia_Tooltips.prototype.parseContent = function( content ) {
         if (typeof content == "string" && content.length) {
             var exp;
 
@@ -187,7 +187,7 @@
     /**
      * Generates parsed tooltips object
      */
-    Tooltips.prototype.parseTooltips = function() {
+    GC_Multimedia_Tooltips.prototype.parseTooltips = function() {
         var context = this;
         var mergeData = [ "pie", "geo", "bubble", "scatter" ].indexOf( this.type ) > -1;
 
@@ -256,7 +256,7 @@
      * @param datapoint {object} Data point on Google Chart
      * @param event {string} Event triggered
      */
-    Tooltips.prototype.toggleTooltip = function( datapoint, event ) {
+    GC_Multimedia_Tooltips.prototype.toggleTooltip = function( datapoint, event ) {
         var context = this;
         var selectedItem = context.chartClass.getSelection()[ 0 ];
 
@@ -369,7 +369,7 @@
         }
     };
 
-    Tooltips.prototype.setOriginalData = function( data ) {
+    GC_Multimedia_Tooltips.prototype.setOriginalData = function( data ) {
         this.originalData = {"cols": data.Ff, "rows": data.Gf};
     };
 
