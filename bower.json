@@ -1,0 +1,25 @@
+{
+  "name": "gc-multimedia-tooltips",
+  "version": "1.0.0",
+  "main": [
+    "plugin/tooltips.min.js",
+    "plugin/tooltips.min.css"
+  ],
+  "homepage": "https://github.com/Blowchart/multimedia-tooltips",
+  "authors": [
+    "Blowchart <info@blowchart.com> (https://www.blowchart.com)"
+  ],
+  "description": "Multimedia tooltips for Google Charts",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Blowchart/gc-multimedia-tooltips.git"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

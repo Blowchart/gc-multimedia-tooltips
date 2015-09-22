@@ -4,11 +4,11 @@ Multimedia tooltips for Google Charts is a jQuery plugin, that enhances standard
 The plugin's function is to convert URLs in the chart data into HTML tags like: `<img>`, `<audio>`, `<video>` and `<a>` and render them inside the Google Charts tooltips.
 
 ## Features
-- Single-line plugin integration
-- Click through tooltip, if datapoint is not selected
+- Single-line plugin integration.
+- Click through tooltip, if datapoint is not selected.
 - Supported protocols: `https`, `http` and `ftp`.
 - Supported file extensions: `gif`, `jpg`, `jpeg`, `tiff`, `png`, `mp3`, `m4a`, `ogg`, `mp4` and `webm`.
-- Integrated error case processing
+- Integrated error case processing.
 
 Check the [demo site](#demo) to see an example.
 
@@ -65,5 +65,5 @@ $( function() {
 
 ## Installation instructions
 ```bash
-npm install gc-multimedia-tooltips
+bower install gc-multimedia-tooltips
 ```
